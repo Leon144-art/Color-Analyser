@@ -84,7 +84,6 @@ function setFromHex(hex, exclude = null) {
 // Keep wheel in sync when native color changes
 nativeColor.addEventListener('input', (e) => setFromHex(e.target.value));
 
-// Wheel rendering and interaction
 // 创建 HSV 色轮实例
 const hsvWheel = new ColorWheel('hsv-wheel', 'HSV', hsvValueSlider, {
     hsvText: hsvHsvText,
@@ -94,9 +93,9 @@ const hsvWheel = new ColorWheel('hsv-wheel', 'HSV', hsvValueSlider, {
 
 // 创建 HSL 色轮实例
 const hslWheel = new ColorWheel('hsl-wheel', 'HSL', hslLightnessSlider, {
-    hslText: hslHslText,     // ✅ 对应 updateReadouts 中的 this.textElements.hslText
-    rgbText: hslRgbText,     // ✅ 对应 updateReadouts 中的 this.textElements.rgbText  
-    lText: hslLText          // ✅ 对应 updateReadouts 中的 this.textElements.lText
+    hslText: hslHslText,     
+    rgbText: hslRgbText,
+    lText: hslLText
 }, { onHexChange: setFromHex });
 
 // 初始化轮盘
