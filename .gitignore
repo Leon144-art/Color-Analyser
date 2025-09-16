@@ -1,0 +1,13 @@
+# System files
+.DS_Store     
+Thumbs.db
+
+# IDE & 编辑器
+.vscode/
+.idea/
+
+# npm 工具链
+node_modules/
+
+# 生成目录
+dist/
