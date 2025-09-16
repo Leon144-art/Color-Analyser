@@ -172,9 +172,9 @@ export class ColorWheel {
     updateFromWheel() {
         let rgb, hex;
         if (this.mode === 'HSV') {
-            rgb = hsvToRgb(this.currentH, this.currentS, this.currentV);  // 使用全局函数
+            rgb = hsvToRgb(this.currentH, this.currentS, this.currentV);  
         } else {
-            rgb = hslToRgb(this.currentH, this.currentS, this.currentL);  // 使用全局函数
+            rgb = hslToRgb(this.currentH, this.currentS, this.currentL);  
         }
 
         hex = rgbToHex(rgb.r, rgb.g, rgb.b);
