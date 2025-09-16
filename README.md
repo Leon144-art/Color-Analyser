@@ -23,7 +23,7 @@
 ## 快速开始
 
 **在线访问**
-https://leon144-art.github.io/Color-Analyser/
+- https://leon144-art.github.io/Color-Analyser/
 
 **本地使用**
 - 直接在现代浏览器中打开 `index.html`
