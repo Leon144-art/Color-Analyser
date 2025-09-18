@@ -65,8 +65,7 @@ export function rgbToHsl(r, g, b) {
 }
 
 export function hslToRgb(h, s, l) {
-    const sn = s / 100, ln = l / 100;
-    const c = (1 - Math.abs(2 * ln - 1)) * sn;
+    const c = (1 - Math.abs(2 * l - 1)) * s;
     const h_prime = h / 60;
     const x = c * (1 - Math.abs(h_prime % 2 - 1));
     let [r1, g1, b1] = h_prime < 1 ? [c, x, 0] :
@@ -74,6 +73,6 @@ export function hslToRgb(h, s, l) {
             h_prime < 3 ? [0, c, x] :
                 h_prime < 4 ? [0, x, c] :
                     h_prime < 5 ? [x, 0, c] : [c, 0, x];
-    const m = ln - c / 2;
+    const m = l - c / 2;
     return { r: Math.round((r1 + m) * 255), g: Math.round((g1 + m) * 255), b: Math.round((b1 + m) * 255) };
 }

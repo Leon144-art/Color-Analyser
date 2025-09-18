@@ -77,6 +77,7 @@ export class ColorWheel {
         let r = Math.sqrt(dx * dx + dy * dy);
         let angle = Math.atan2(dy, dx) * 180 / Math.PI;
         if (angle < 0) angle += 360;
+        angle = (angle + 90) % 360;
 
         let s = Math.min(1, r / this.radius);
         if (r > this.radius) {
@@ -103,13 +104,14 @@ export class ColorWheel {
                 if (r <= this.radius) {
                     let angle = Math.atan2(dy, dx) * 180 / Math.PI;
                     if (angle < 0) angle += 360;
+                    angle = (angle + 90) % 360;
                     const s = Math.min(1, r / this.radius);
 
                     let rgb;
                     if (this.mode === 'HSV') {
                         rgb = hsvToRgb(angle, s, this.currentV);
                     } else {
-                        rgb = hslToRgb(angle, s * 100, this.currentL * 100);
+                        rgb = hslToRgb(angle, s, this.currentL);
                     }
 
                     let alpha = 255;
@@ -134,8 +136,9 @@ export class ColorWheel {
     }
 
     drawIndicator() {
-        const px = this.centerX + this.currentS * this.radius * Math.cos(this.currentH * Math.PI / 180);
-        const py = this.centerY + this.currentS * this.radius * Math.sin(this.currentH * Math.PI / 180);
+        const adjustedAngle = (this.currentH - 90) % 360;
+        const px = this.centerX + this.currentS * this.radius * Math.cos(adjustedAngle * Math.PI / 180);
+        const py = this.centerY + this.currentS * this.radius * Math.sin(adjustedAngle * Math.PI / 180);
 
         this.ctx.beginPath();
         this.ctx.arc(px, py, 6, 0, Math.PI * 2);
@@ -158,7 +161,7 @@ export class ColorWheel {
             // this.textElements.rgbText.textContent = `RGB(${r}, ${g}, ${b})`;
             this.textElements.vText.textContent = `V=${Math.round(this.currentV * 100)}%`;
         } else {
-            const { r, g, b } = hslToRgb(this.currentH, this.currentS * 100, this.currentL * 100);
+            const { r, g, b } = hslToRgb(this.currentH, this.currentS, this.currentL);
             this.textElements.hslText.textContent =
                 `HSL(${Math.round(this.currentH)}, ${Math.round(this.currentS * 100)}%, ${Math.round(this.currentL * 100)}%)`;
             //   this.textElements.rgbText.textContent = `RGB(${r}, ${g}, ${b})`;
@@ -169,9 +172,9 @@ export class ColorWheel {
     updateFromWheel() {
         let rgb, hex;
         if (this.mode === 'HSV') {
-            rgb = hsvToRgb(this.currentH, this.currentS, this.currentV);  // 使用全局函数
+            rgb = hsvToRgb(this.currentH, this.currentS, this.currentV);  
         } else {
-            rgb = hslToRgb(this.currentH, this.currentS * 100, this.currentL * 100);  // 使用全局函数
+            rgb = hslToRgb(this.currentH, this.currentS, this.currentL);  
         }
 
         hex = rgbToHex(rgb.r, rgb.g, rgb.b);
