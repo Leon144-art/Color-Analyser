@@ -20,6 +20,9 @@ const hslHslText = document.getElementById('hsl-hsl-text');
 const hslRgbText = document.getElementById('hsl-rgb-text');
 
 const rgbReadout = document.getElementById('rgb-text');
+const swatchR = document.querySelector('.swatch-r');
+const swatchG = document.querySelector('.swatch-g');
+const swatchB = document.querySelector('.swatch-b');  
 
 // Centralized apply function (updates UI + storage)
 function setHex(hex, origin = 'unknown') {
@@ -71,7 +74,9 @@ function setFromHex(hex, exclude = null) {
     setHex(hex, 'sync')
     const { r, g, b } = hexToRgb(hex);
     rgbReadout.textContent = `RGB(${r}, ${g}, ${b})`;
-   
+    swatchR.style.background = `rgb(${r}, 0, 0)`;
+    swatchG.style.background = `rgb(0, ${g}, 0)`;
+    swatchB.style.background = `rgb(0, 0, ${b})`;
     if (typeof hsvWheel !== 'undefined' && exclude != 'HSV') {
         hsvWheel.setFromHex(hex);
     }

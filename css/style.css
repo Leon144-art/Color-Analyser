@@ -142,6 +142,13 @@ button.primary {
   margin-top: 8px;
 }
 
+.rgb-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
 /* Live preview of the currently selected color */
 .swatch {
   width: 48px;
@@ -149,6 +156,71 @@ button.primary {
   border-radius: 10px;
   border: 1px solid var(--border);
   background-color: var(--accent);
+}
+
+.swatch-rgb {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background-color: var(--accent);
+  /* margin-left: 100px; */
+}
+
+.swatch-r {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background-color: var(--accent);
+  /* margin-left: 100px; */
+}
+
+.swatch-g {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background-color: var(--accent);
+  /* margin-left: 100px; */
+}
+
+.swatch-b {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background-color: var(--accent);
+  /* margin-left: 100px; */
+}
+
+.format-rgb {
+  width: 35px;
+  height: 35px;
+ 
+  /* margin-left: 100px; */
+}
+
+
+.rgb-section {
+  display: flex;
+  gap: 3em; /* 控制三个小色块之间的间距 */
+  margin-left: auto;
+  margin-right: 10em; /* 让它们不完全贴到最右边，留出一些空间 */
+  align-items: center;
+}
+
+.rgb-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.8em;
+}
+
+.rgb-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
 }
 
 /* Simple readout background so the text stands out */

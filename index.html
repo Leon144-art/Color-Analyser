@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Color Picker</title>
   <link rel="stylesheet" href="./css/style.css" />
-  
+
 </head>
 
 <body>
@@ -25,11 +25,27 @@
       </div>
       <div class="hint">Your last color is saved locally and restored on next open.</div>
     </section>
-      <section class="panel">
-        <h2>RGB Color Values</h2>
+    <section class="panel">
+      <h2>RGB Color Values</h2>
+      <div class="rgb-row">
         <div id="rgb-text" class="readouts">RGB(255, 255, 255)</div>
-        <span class="extra-box" id="extra-box"><!-- 你的盒子内容 --></span>
-      </section>
+        <div class="rgb-section">
+          <div class="rgb-item">
+            <span class="rgb-label">R:</span>
+            <div class="swatch-r"></div>
+          </div>
+          <div class="rgb-item">
+            <span class="rgb-label">G:</span>
+            <div class="swatch-g"></div>
+          </div>
+          <div class="rgb-item">
+            <span class="rgb-label">B:</span>
+            <div class="swatch-b"></div>
+          </div>
+        </div>
+      </div>
+
+    </section>
 
     <section class="panel wheel-section">
       <h2>HSV Color Wheel</h2>
@@ -42,7 +58,9 @@
             <span id="hsv-v-text" class="code">V=100%</span>
           </div>
           <div class="readouts"><span id="hsv-hsv-text">HSV(0, 0%, 100%)</span></div>
-          <div class="hint">Drag on the wheel for <strong>Hue/Saturation</strong>, use slider for <strong>Value</strong>.</div>
+          <div class="hint">Drag on the wheel for <strong>Hue/Saturation</strong>, use slider for
+            <strong>Value</strong>.
+          </div>
         </div>
       </div>
     </section>
@@ -59,7 +77,9 @@
           <div class="readouts">
             <span id="hsl-hsl-text">HSL(0, 0%, 50%)</span>
           </div>
-          <div class="hint">Drag on the wheel for <strong>Hue/Saturation</strong>, use slider for <strong>Lightness</strong>.</div>
+          <div class="hint">Drag on the wheel for <strong>Hue/Saturation</strong>, use slider for
+            <strong>Lightness</strong>.
+          </div>
         </div>
       </div>
     </section>
