@@ -204,9 +204,9 @@ button.primary {
 
 .rgb-section {
   display: flex;
-  gap: 3em; /* 控制三个小色块之间的间距 */
+  gap: 3em; 
   margin-left: auto;
-  margin-right: 10em; /* 让它们不完全贴到最右边，留出一些空间 */
+  margin-right: 10em; 
   align-items: center;
 }
 
